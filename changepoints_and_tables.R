@@ -65,7 +65,6 @@ model_ll_a = list(
 
 model_ll_t = list(
   meant ~ 1 +age, 
-  ~ 0 + age, 
   ~ 0 + age)
 
 # rt change point model: two change points, linear
@@ -79,28 +78,28 @@ model_lll_rt = list(
 ### fit  models, with custom priors
 
 fit_lll = mcp(model_lll, data = agemeansv,iter = 200000, adapt=10000,
-              prior = list(cp_1 = "dunif(20, 40)",cp_2 = "dunif(50, 70)"))
+              prior = list(cp_1 = "dunif(20, 40)",cp_2 = "dunif(35, 70)"))
 
 fit_lll_c = mcp(model_lll, data = agemeansv_c,iter = 200000, adapt=10000,
-              prior = list(cp_1 = "dunif(20, 40)",cp_2 = "dunif(50, 70)"))
+              prior = list(cp_1 = "dunif(20, 40)",cp_2 = "dunif(35, 70)"))
 
 fit_lll_a = mcp(model_ll_a, data = agemeansa,iter = 200000, adapt=10000,
-               prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(50, 70)"))
+               prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(35, 70)"))
 
 fit_lll_a_c = mcp(model_ll_a, data = agemeansa_c,iter = 200000, adapt=10000,
-                prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(50, 70)"))
+                prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(35, 70)"))
 
 fit_ll_t = mcp(model_ll_t, data = agemeanst,iter = 200000, adapt=10000,
-               prior = list(cp_1 = "dunif(12, 18)",cp_2 = "dunif(50, 70)"))
+               prior = list(cp_1 = "dunif(12, 18)"))
 
 fit_ll_t_minus = mcp(model_ll_t, data = agemeanst_minus,iter = 200000, adapt=10000,
                prior = list(cp_1 = "dunif(12, 18)"))
 
 fit_lll_rt = mcp(model_lll_rt, data = agemeansrt,iter = 200000, adapt=10000,
-                prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(50, 70)"))
+                prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(35, 70)"))
 
 fit_lll_rt_c = mcp(model_lll_rt, data = agemeansrt_c,iter = 200000, adapt=10000,
-                 prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(50, 70)"))
+                 prior = list(cp_1 = "dunif(15, 25)",cp_2 = "dunif(35, 70)"))
 
 # get posterior chains
 
